@@ -181,7 +181,10 @@ Examples:
 */
 
 function filterByValue(arr, key) {
-    
+    // return 
+    return arr.filter(function(val) {
+        return val[key] !== undefined; 
+    })
 }
 
 /*
@@ -193,18 +196,25 @@ Examples:
 */
 
 function find(arr, searchValue) {
-
+    return arr.filter(function(val) {
+        return val === searchValue;
+    })[0];
 }
 
 /*
 Write a function called findInObj which accepts an array of objects, a key, and some value to search for and returns the first found value in the array.
 
 Examples:
-    findInObj([{first: 'Elie', last:"Schoppik"}, {first: 'Tim', last:"Garcia", isCatOwner: true}, {first: 'Matt', last:"Lane"}, {first: 'Colt', last:"Steele", isCatOwner: true}], 'isCatOwner',true) // {first: 'Tim', last:"Garcia", isCatOwner: true}
+    findInObj([{first: 'Elie', last:"Schoppik"}, {first: 'Tim', last:"Garcia", isCatOwner: true}, {first: 'Matt', last:"Lane"}, {first: 'Colt', last:"Steele", isCatOwner: true}], 'isCatOwner',true) 
+    // {first: 'Tim', last:"Garcia", isCatOwner: true}
 */
 
 function findInObj(arr, key, searchValue) {
-
+    // arr filter 
+    return arr.filter(function(value) {
+        // return 
+        return value[key] === searchValue; 
+    })[0]; 
 }
 
 /*
@@ -217,8 +227,15 @@ Examples:
 */
 
 function removeVowels(str) {
-
-}
+    const vowels = "aeiou";
+    return str
+      .toLowerCase()
+      .split("")
+      .filter(function(val) {
+        return vowels.indexOf(val) === -1;
+      })
+      .join("");
+  }
 
 /*
 Write a function called doubleOddNumbers which accepts an array and returns a new array with all of the odd numbers doubled (HINT - you can use map and filter to double and then filter the odd numbers).
@@ -229,5 +246,11 @@ Examples:
 */
 
 function doubleOddNumbers(arr) {
-
+    return arr
+      .filter(function(val) {
+        return val % 2 !== 0;
+      })
+      .map(function(val) {
+        return val * 2;
+      });
 }
