@@ -168,7 +168,6 @@ Examples:
 function extractFullName(arr) {
     // arr map 
     return arr.map(function(val) {
-        // first; last
         // return val.first + " " + val.last;
         return `${val.first} ${val.last}`;
     });
